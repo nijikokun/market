@@ -175,10 +175,10 @@
 
 ### Issue Referencing
 
-  Referencing github issues is a very basic syntax of `ghi:[Github Name]/[Github Repository]:[#[Issue Number]]`
+  Referencing github issues is a very basic syntax of `ghi:[Github Name]/[Github Repository]:[Issue Number]`
 
   ```market
-  Hello on ghi:Nijikokun/market:#83, I see you closed and commited, why?
+  Hello on ghi:Nijikokun/market:83, I see you closed and commited, why?
   ```
 
   would produce:
@@ -190,7 +190,7 @@
 #### Multiple Issue References
 
   ```market
-  ghi:[Github Name]/[Github Repository]:[#[Number]],[#[Number]]...
+  ghi:[Github Name]/[Github Repository]:[Number],[Number]...
   ```
 
   would produce:
