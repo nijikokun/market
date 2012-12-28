@@ -19,11 +19,11 @@
 
   Market once again to iterate quickly, is refined, simple, and very strict to it's core.
 
-## Newlines
+### Newlines
 
   Double space will cause the section or content to be wrapped in paragraph tags `<p>` and `</p>`.
 
-#### Rules
+##### Rules
 
   1. Excess whitespace must be stripped.
   2. Excess newlines must be stripped before appending the ending tag.
@@ -32,7 +32,7 @@
 
   Market treats emphasis differently than markdown, there are to seperate ways to emphasis and this is bold and italics, as such they have different connentations in the human langauge and should be treated as such through text for readability and for a direct and clear understanding without need for a second look.
 
-#### Rules
+##### Rules
 
   1. Must be surrounded by either a space, single character, or word to be converted.
   2. Should not intefere with links, or code, thus those should be converted and stored first, then replaced later.
@@ -65,7 +65,7 @@
   Hello <em>World</em>!
   ```
 
-### Underlined
+#### Underlined
 
   Text wrapped with the low-dash (_) will be raplaced with an HTML `<u>` tag:
 
@@ -79,7 +79,7 @@
   I think you <u>should</u> be able to understand what I am trying to convey.
   ```
 
-## Code
+### Code
 
   Market only supports inline-code in it's core specification.
 
@@ -167,13 +167,13 @@
   </ol>
   ```
 
-## Github Features
+### Github Features
 
   Market in it's core used to support github issues, commits, gist referencing, and more.
 
   Now they've been put into the plugins section.
 
-### Issue Referencing
+#### Issue Referencing
 
   Referencing github issues is a very basic syntax of `ghi:[Github Name]/[Github Repository]:[Issue Number]`
 
@@ -187,7 +187,7 @@
   Hello on issue <a href="http://github.com/Nijikokun/market/issues/83">#83</a>, I see you closed and commited, why?
   ```
 
-#### Multiple Issue References
+##### Multiple Issue References
 
   ```market
   ghi:[Github Name]/[Github Repository]:[Number],[Number]...
