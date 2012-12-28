@@ -1,0 +1,225 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Market by Nijikokun</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">Market</h1>
+        <p class="header">A refined markdown for basic markup with strict rules</p>
+
+        <ul>
+          <li class="download"><a class="buttons" href="https://github.com/Nijikokun/market/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/Nijikokun/market/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/Nijikokun/market">View On GitHub</a></li>
+        </ul>
+
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/Nijikokun">Nijikokun</a></p>
+
+
+      </header>
+      <section>
+        <h1>market.js</h1>
+
+<p>Market is a text-to-HTML conversion language based upon markdown, and IRC.</p>
+
+<p>It is plain text formatting, with a strict set of rules so that basic expressions or lexers can be made without worry of creating overtly complex logic rules.</p>
+
+<h2>Philosophy</h2>
+
+<ol>
+<li>Market should be readable.</li>
+<li>Each feature should have no ties to other features unless they are directly related such as links.</li>
+<li>No optional flexibility, each feature must have a reason to exist and optional existance complicates that.</li>
+<li>Each feature should be able to be turned on or off.</li>
+</ol><h2>Plugins</h2>
+
+<p>Market should be a core with the possibility of add-ons, as such there are add, remove functions to allow others to modify and change the language as they see fit and contribute back if wanted or you can make it your own if wished.</p>
+
+<h2>The Core Language</h2>
+
+<p>Market once again to iterate quickly, is refined, simple, and very strict to it's core.</p>
+
+<h3>Newlines</h3>
+
+<p>Double space will cause the section or content to be wrapped in paragraph tags <code>&lt;p&gt;</code> and <code>&lt;/p&gt;</code>.</p>
+
+<h5>Rules</h5>
+
+<ol>
+<li>Excess whitespace must be stripped.</li>
+<li>Excess newlines must be stripped before appending the ending tag.</li>
+</ol><h3>Emphasis</h3>
+
+<p>Market treats emphasis differently than markdown, there are to seperate ways to emphasis and this is bold and italics, as such they have different connentations in the human langauge and should be treated as such through text for readability and for a direct and clear understanding without need for a second look.</p>
+
+<h5>Rules</h5>
+
+<ol>
+<li>Must be surrounded by either a space, single character, or word to be converted.</li>
+<li>Should not intefere with links, or code, thus those should be converted and stored first, then replaced later.</li>
+</ol><h4>Bold</h4>
+
+<p>Text wrapped with asterisks (*) is implied as important and will be wrapped with an HTML <code>&lt;strong&gt;</code> tag:</p>
+
+<pre lang="market"><code>  This *is* readable.
+</code></pre>
+
+<p>would produce:</p>
+
+<div class="highlight"><pre>  This <span class="nt">&lt;strong&gt;</span>is<span class="nt">&lt;/strong&gt;</span> readable.
+</pre></div>
+
+<h4>Italics</h4>
+
+<p>Text wrapped with the forward slash (/) character will be replaced with an HTML <code>&lt;em&gt;</code> tag:</p>
+
+<pre lang="market"><code>  Hello /World/!
+</code></pre>
+
+<p>would produce:</p>
+
+<div class="highlight"><pre>  Hello <span class="nt">&lt;em&gt;</span>World<span class="nt">&lt;/em&gt;</span>!
+</pre></div>
+
+<h4>Underlined</h4>
+
+<p>Text wrapped with the low-dash (_) will be raplaced with an HTML <code>&lt;u&gt;</code> tag:</p>
+
+<pre lang="market"><code>  I think you _should_ be able to understand what I am trying to convey.
+</code></pre>
+
+<p>would produce:</p>
+
+<div class="highlight"><pre>  I think you <span class="nt">&lt;u&gt;</span>should<span class="nt">&lt;/u&gt;</span> be able to understand what I am trying to convey.
+</pre></div>
+
+<h3>Code</h3>
+
+<p>Market only supports inline-code in it's core specification.</p>
+
+<p>Text wrapped with back-ticks (`) will be converted, stored, and replaced later as inline code:</p>
+
+<pre lang="market"><code>  Hello to use market at its base: `market(source, options)`
+</code></pre>
+
+<p>will produce:</p>
+
+<div class="highlight"><pre>  Hello to use market at it's base: <span class="nt">&lt;code&gt;</span>market(source, options)<span class="nt">&lt;/code&gt;</span>
+</pre></div>
+
+<h2>The Plugin Language</h2>
+
+<p>Market seperates it's core from it's more verbose features such as lists, links, and so forth.</p>
+
+<h3>Lists</h3>
+
+<p>Unlike markdown which allows for a variety of flexibility market is more refined and only allows two types of lists and markup for them to keep consistency.</p>
+
+<p>These are all future functionality, and prone to change as they have not yet been written.</p>
+
+<h4>Un-ordered</h4>
+
+<p>Text with leading dashes (-) are considered un-ordered lists, the reason we don't use asterisks and I would love to include that functionality is because it would go against the core philosophies of market as they are already used for more meaningful elements.</p>
+
+<pre lang="market"><code>  Grocery List:
+
+  - Dairy
+  -- Milk
+  -- Butter
+  -- Eggs
+  - Veggies
+  -- Broccoli
+  -- Carrots
+  -- Lettuce
+</code></pre>
+
+<p>would produce:</p>
+
+<div class="highlight"><pre>  Grocery List:
+  <span class="nt">&lt;ul&gt;</span>
+    <span class="nt">&lt;li&gt;</span>Dairy
+      <span class="nt">&lt;ul&gt;</span>
+        <span class="nt">&lt;li&gt;</span>Milk<span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;li&gt;</span>Butter<span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;li&gt;</span>Eggs<span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;/ul&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li&gt;</span>Veggies
+      <span class="nt">&lt;ul&gt;</span>
+        <span class="nt">&lt;li&gt;</span>Broccoli<span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;li&gt;</span>Carrots<span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;li&gt;</span>Lettuce<span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;/ul&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;/ul&gt;</span>
+</pre></div>
+
+<h4>Ordered</h4>
+
+<p>Market utilizes the same paradigm as markdown for ordered lists ([A-Z0-9].)</p>
+
+<pre lang="market"><code>  Things to do:
+
+  1. Make market specification
+  2. Write out lexer
+  3. Release
+</code></pre>
+
+<p>would produce:</p>
+
+<div class="highlight"><pre>  Things to do:
+  <span class="nt">&lt;ol&gt;</span>
+    <span class="nt">&lt;li&gt;</span>Make market specification<span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li&gt;</span>Write out lexer<span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li&gt;</span>Release<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;/ol&gt;</span>
+</pre></div>
+
+<h3>Github Features</h3>
+
+<p>Market in it's core used to support github issues, commits, gist referencing, and more.</p>
+
+<p>Now they've been put into the plugins section.</p>
+
+<h4>Issue Referencing</h4>
+
+<p>Referencing github issues is a very basic syntax of <code>ghi:[Github Name]/[Github Repository]:[Issue Number]</code></p>
+
+<pre lang="market"><code>  Hello on ghi:Nijikokun/market:83, I see you closed and commited, why?
+</code></pre>
+
+<p>would produce:</p>
+
+<div class="highlight"><pre>  Hello on issue <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"http://github.com/Nijikokun/market/issues/83"</span><span class="nt">&gt;</span>#83<span class="nt">&lt;/a&gt;</span>, I see you closed and commited, why?
+</pre></div>
+
+<h5>Multiple Issue References</h5>
+
+<pre lang="market"><code>  ghi:[Github Name]/[Github Repository]:[Number],[Number]...
+</code></pre>
+
+<p>would produce:</p>
+
+<div class="highlight"><pre>  issues <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>#n<span class="nt">&lt;/a&gt;</span>, <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>#n<span class="nt">&lt;/a&gt;</span>...
+</pre></div>
+      </section>
+      <footer>
+        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+		
+  </body>
+</html>
