@@ -76,7 +76,7 @@
   would produce:
 
   ```html
-  I think you _should_ be able to understand what I am trying to convey.
+  I think you <u>should</u> be able to understand what I am trying to convey.
   ```
 
 ## Code
